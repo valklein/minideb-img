@@ -1,0 +1,42 @@
+{
+    "settings": {
+        "target": "pdfidx-demo-add",
+        "optimized": true
+    },
+    "analysis": {
+        "filter": {
+            "lc": {
+                "type": "lowercase"
+            }
+        },
+        "analyzer": {
+            "pdfanalyzer": {
+                "tokenizer": "char",
+                "filter": [
+                    "lc"
+                ]
+            }
+        }
+    },
+	"mappings": {
+        "properties": {
+            "source": {
+                "type": "string",
+                "indexed": true,
+                "stored": true
+            },
+            "page": {
+                "type": "string",
+                "indexed": true,
+                "stored": true
+            },
+            "text": {
+                "type": "string",
+                "analyzer": "pdfanalyzer",
+                "indexed": true,
+                "stored": true
+            }
+        }			
+		
+	}
+}
